@@ -76,14 +76,20 @@ public class FileDocument
 	 */
 	public static system.proxies.FileDocument initialize(com.mendix.systemwideinterfaces.core.IContext context, com.mendix.systemwideinterfaces.core.IMendixObject mendixObject)
 	{
-		if (com.mendix.core.Core.isSubClassOf("MyFirstModule.Entity", mendixObject.getType()))
-			return myfirstmodule.proxies.Entity.initialize(context, mendixObject);
+		if (com.mendix.core.Core.isSubClassOf("XLSReport.CustomExcel", mendixObject.getType()))
+			return xlsreport.proxies.CustomExcel.initialize(context, mendixObject);
 
 		if (com.mendix.core.Core.isSubClassOf("System.Image", mendixObject.getType()))
 			return system.proxies.Image.initialize(context, mendixObject);
 
 		if (com.mendix.core.Core.isSubClassOf("System.SynchronizationErrorFile", mendixObject.getType()))
 			return system.proxies.SynchronizationErrorFile.initialize(context, mendixObject);
+
+		if (com.mendix.core.Core.isSubClassOf("ExcelImporter.TemplateDocument", mendixObject.getType()))
+			return excelimporter.proxies.TemplateDocument.initialize(context, mendixObject);
+
+		if (com.mendix.core.Core.isSubClassOf("ExcelImporter.XMLDocumentTemplate", mendixObject.getType()))
+			return excelimporter.proxies.XMLDocumentTemplate.initialize(context, mendixObject);
 
 		return new system.proxies.FileDocument(context, mendixObject);
 	}

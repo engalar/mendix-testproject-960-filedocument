@@ -4,3 +4,4 @@ theme-cache
 *.launch
 .project
 .classpath
+testProject.mpr.lock

@@ -2,25 +2,25 @@
 //
 // WARNING: Code you write here will be lost the next time you deploy the project.
 
-package myfirstmodule.proxies;
+package mxmodelreflection.proxies;
 
-public class Entity_2
+public class InheritsFromContainer
 {
-	private final com.mendix.systemwideinterfaces.core.IMendixObject entity_2MendixObject;
+	private final com.mendix.systemwideinterfaces.core.IMendixObject inheritsFromContainerMendixObject;
 
 	private final com.mendix.systemwideinterfaces.core.IContext context;
 
 	/**
 	 * Internal name of this entity
 	 */
-	public static final java.lang.String entityName = "MyFirstModule.Entity_2";
+	public static final java.lang.String entityName = "MxModelReflection.InheritsFromContainer";
 
 	/**
 	 * Enum describing members of this entity
 	 */
 	public enum MemberNames
 	{
-		Attribute("Attribute");
+		Summary("Summary");
 
 		private java.lang.String metaName;
 
@@ -36,44 +36,44 @@ public class Entity_2
 		}
 	}
 
-	public Entity_2(com.mendix.systemwideinterfaces.core.IContext context)
+	public InheritsFromContainer(com.mendix.systemwideinterfaces.core.IContext context)
 	{
-		this(context, com.mendix.core.Core.instantiate(context, "MyFirstModule.Entity_2"));
+		this(context, com.mendix.core.Core.instantiate(context, "MxModelReflection.InheritsFromContainer"));
 	}
 
-	protected Entity_2(com.mendix.systemwideinterfaces.core.IContext context, com.mendix.systemwideinterfaces.core.IMendixObject entity_2MendixObject)
+	protected InheritsFromContainer(com.mendix.systemwideinterfaces.core.IContext context, com.mendix.systemwideinterfaces.core.IMendixObject inheritsFromContainerMendixObject)
 	{
-		if (entity_2MendixObject == null)
+		if (inheritsFromContainerMendixObject == null)
 			throw new java.lang.IllegalArgumentException("The given object cannot be null.");
-		if (!com.mendix.core.Core.isSubClassOf("MyFirstModule.Entity_2", entity_2MendixObject.getType()))
-			throw new java.lang.IllegalArgumentException("The given object is not a MyFirstModule.Entity_2");
+		if (!com.mendix.core.Core.isSubClassOf("MxModelReflection.InheritsFromContainer", inheritsFromContainerMendixObject.getType()))
+			throw new java.lang.IllegalArgumentException("The given object is not a MxModelReflection.InheritsFromContainer");
 
-		this.entity_2MendixObject = entity_2MendixObject;
+		this.inheritsFromContainerMendixObject = inheritsFromContainerMendixObject;
 		this.context = context;
 	}
 
 	/**
-	 * @deprecated Use 'Entity_2.load(IContext, IMendixIdentifier)' instead.
+	 * @deprecated Use 'InheritsFromContainer.load(IContext, IMendixIdentifier)' instead.
 	 */
 	@java.lang.Deprecated
-	public static myfirstmodule.proxies.Entity_2 initialize(com.mendix.systemwideinterfaces.core.IContext context, com.mendix.systemwideinterfaces.core.IMendixIdentifier mendixIdentifier) throws com.mendix.core.CoreException
+	public static mxmodelreflection.proxies.InheritsFromContainer initialize(com.mendix.systemwideinterfaces.core.IContext context, com.mendix.systemwideinterfaces.core.IMendixIdentifier mendixIdentifier) throws com.mendix.core.CoreException
 	{
-		return myfirstmodule.proxies.Entity_2.load(context, mendixIdentifier);
+		return mxmodelreflection.proxies.InheritsFromContainer.load(context, mendixIdentifier);
 	}
 
 	/**
 	 * Initialize a proxy using context (recommended). This context will be used for security checking when the get- and set-methods without context parameters are called.
 	 * The get- and set-methods with context parameter should be used when for instance sudo access is necessary (IContext.createSudoClone() can be used to obtain sudo access).
 	 */
-	public static myfirstmodule.proxies.Entity_2 initialize(com.mendix.systemwideinterfaces.core.IContext context, com.mendix.systemwideinterfaces.core.IMendixObject mendixObject)
+	public static mxmodelreflection.proxies.InheritsFromContainer initialize(com.mendix.systemwideinterfaces.core.IContext context, com.mendix.systemwideinterfaces.core.IMendixObject mendixObject)
 	{
-		return new myfirstmodule.proxies.Entity_2(context, mendixObject);
+		return new mxmodelreflection.proxies.InheritsFromContainer(context, mendixObject);
 	}
 
-	public static myfirstmodule.proxies.Entity_2 load(com.mendix.systemwideinterfaces.core.IContext context, com.mendix.systemwideinterfaces.core.IMendixIdentifier mendixIdentifier) throws com.mendix.core.CoreException
+	public static mxmodelreflection.proxies.InheritsFromContainer load(com.mendix.systemwideinterfaces.core.IContext context, com.mendix.systemwideinterfaces.core.IMendixIdentifier mendixIdentifier) throws com.mendix.core.CoreException
 	{
 		com.mendix.systemwideinterfaces.core.IMendixObject mendixObject = com.mendix.core.Core.retrieveId(context, mendixIdentifier);
-		return myfirstmodule.proxies.Entity_2.initialize(context, mendixObject);
+		return mxmodelreflection.proxies.InheritsFromContainer.initialize(context, mendixObject);
 	}
 
 	/**
@@ -108,39 +108,39 @@ public class Entity_2
 		com.mendix.core.Core.delete(context, getMendixObject());
 	}
 	/**
-	 * @return value of Attribute
+	 * @return value of Summary
 	 */
-	public final java.lang.String getAttribute()
+	public final java.lang.String getSummary()
 	{
-		return getAttribute(getContext());
+		return getSummary(getContext());
 	}
 
 	/**
 	 * @param context
-	 * @return value of Attribute
+	 * @return value of Summary
 	 */
-	public final java.lang.String getAttribute(com.mendix.systemwideinterfaces.core.IContext context)
+	public final java.lang.String getSummary(com.mendix.systemwideinterfaces.core.IContext context)
 	{
-		return (java.lang.String) getMendixObject().getValue(context, MemberNames.Attribute.toString());
+		return (java.lang.String) getMendixObject().getValue(context, MemberNames.Summary.toString());
 	}
 
 	/**
-	 * Set value of Attribute
-	 * @param attribute
+	 * Set value of Summary
+	 * @param summary
 	 */
-	public final void setAttribute(java.lang.String attribute)
+	public final void setSummary(java.lang.String summary)
 	{
-		setAttribute(getContext(), attribute);
+		setSummary(getContext(), summary);
 	}
 
 	/**
-	 * Set value of Attribute
+	 * Set value of Summary
 	 * @param context
-	 * @param attribute
+	 * @param summary
 	 */
-	public final void setAttribute(com.mendix.systemwideinterfaces.core.IContext context, java.lang.String attribute)
+	public final void setSummary(com.mendix.systemwideinterfaces.core.IContext context, java.lang.String summary)
 	{
-		getMendixObject().setValue(context, MemberNames.Attribute.toString(), attribute);
+		getMendixObject().setValue(context, MemberNames.Summary.toString(), summary);
 	}
 
 	/**
@@ -148,7 +148,7 @@ public class Entity_2
 	 */
 	public final com.mendix.systemwideinterfaces.core.IMendixObject getMendixObject()
 	{
-		return entity_2MendixObject;
+		return inheritsFromContainerMendixObject;
 	}
 
 	/**
@@ -167,7 +167,7 @@ public class Entity_2
 
 		if (obj != null && getClass().equals(obj.getClass()))
 		{
-			final myfirstmodule.proxies.Entity_2 that = (myfirstmodule.proxies.Entity_2) obj;
+			final mxmodelreflection.proxies.InheritsFromContainer that = (mxmodelreflection.proxies.InheritsFromContainer) obj;
 			return getMendixObject().equals(that.getMendixObject());
 		}
 		return false;
@@ -184,7 +184,7 @@ public class Entity_2
 	 */
 	public static java.lang.String getType()
 	{
-		return "MyFirstModule.Entity_2";
+		return "MxModelReflection.InheritsFromContainer";
 	}
 
 	/**
