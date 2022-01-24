@@ -1,0 +1,6 @@
+deployment
+.mendix-cache
+theme-cache
+*.launch
+.project
+.classpath
