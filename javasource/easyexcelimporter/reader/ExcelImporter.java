@@ -14,8 +14,9 @@ import com.mendix.systemwideinterfaces.core.IMendixObject;
 
 import excelimporter.proxies.Column;
 import excelimporter.proxies.Template;
-import excelimporter.reader.readers.ExcelColumn;
-import excelimporter.reader.readers.ExcelReader;
+import easyexcelimporter.reader.readers.ExcelColumn;
+import easyexcelimporter.reader.readers.ExcelReader;
+
 
 /**
  * 

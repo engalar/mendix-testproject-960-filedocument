@@ -11,9 +11,9 @@ package easyexcelimporter.actions;
 
 import com.mendix.core.CoreException;
 import com.mendix.systemwideinterfaces.core.IMendixObject;
-import excelimporter.reader.ExcelImporter;
 import com.mendix.systemwideinterfaces.core.IContext;
 import com.mendix.webui.CustomJavaAction;
+import easyexcelimporter.reader.ExcelImporter;
 
 /**
  * Start the excel import, The parameter TemplateObject should be a valid parameter, this template is analysed and by this template configuration the filedocument (which should be an excel .xls file)

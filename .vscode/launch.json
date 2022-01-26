@@ -1,0 +1,38 @@
+{
+  // Use IntelliSense to learn about possible attributes.
+  // Hover to view descriptions of existing attributes.
+  // For more information, visit: https://go.microsoft.com/fwlink/?linkid=830387
+  "version": "0.2.0",
+  "configurations": [
+    {
+      "type": "java",
+      "name": "Launch Mendix Program",
+      "request": "launch",
+      "vmArgs": "-Djava.net.preferIPv4Stack=true -DMX_LOG_LEVEL=INFO \"-Djava.library.path=C:/Program Files/Mendix/9.6.0.27784/runtime/lib/x64;C:/Users/eg/Documents/GitHub/mendix-testproject-960-filedocument/deployment/model/lib/userlib\" -Dfile.encoding=UTF-8 -Djava.io.tmpdir=\"C:/Users/eg/Documents/GitHub/mendix-testproject-960-filedocument/deployment/data/tmp\"",
+      "classPaths": [
+        "C:/Program Files/Mendix/9.6.0.27784/runtime/launcher/runtimelauncher.jar"
+      ],
+      "cwd": "${workspaceFolder}/deployment",
+      "mainClass": "com.mendix.container.boot.Main",
+      "env": {
+        "M2EE_ADMIN_PASS": "1",
+        "M2EE_ADMIN_PORT": 8090,
+        "M2EE_CONSOLE_PATH": "C:/Program Files/Mendix/9.6.0.27784/modeler/MendixConsoleLog.exe",
+        "MX_INSTALL_PATH": "C:/Program Files/Mendix/9.6.0.27784",
+        "MXCONSOLE_BASE_PATH": "C:/Users/eg/Documents/GitHub/mendix-testproject-960-filedocument/deployment",
+        "MXCONSOLE_RUNTIME_LISTEN_ADDRESSES": "*",
+        "MXCONSOLE_RUNTIME_PATH": "C:/Program Files/Mendix/9.6.0.27784/runtime",
+        "MXCONSOLE_RUNTIME_PORT": 8080,
+        "MXCONSOLE_SERVER_URL": "http://127.0.0.1:8090/"
+      },
+      "args": "${workspaceFolder}/deployment"
+    },
+    {
+      "type": "java",
+      "name": "Attach to Remote Mendix Program",
+      "request": "attach",
+      "hostName": "127.0.0.1",
+      "port": "5005"
+    }
+  ]
+}

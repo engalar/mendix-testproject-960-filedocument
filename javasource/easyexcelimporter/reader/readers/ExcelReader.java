@@ -38,6 +38,7 @@ import com.mendix.logging.ILogNode;
 import com.mendix.systemwideinterfaces.core.IContext;
 import com.mendix.systemwideinterfaces.core.IMendixIdentifier;
 import com.mendix.systemwideinterfaces.core.IMendixObject;
+import com.alibaba.excel.read.builder.ExcelReaderBuilder;
 
 import excelimporter.proxies.AdditionalProperties;
 import excelimporter.proxies.Column;
@@ -367,7 +368,14 @@ public class ExcelReader {
 					logNode.debug("nrOfCols: " + nrOfCols);
 
 					excelFile = getExcelFile(this.settings.getContext(), fileDocument);
-					this.rowcounts = ExcelXLSXDataReader.readData(excelFile.getAbsolutePath(), sheetIndex, startRowIndex, new ExcelRowProcessorImpl(getSettings(), getDocPropertiesMapping()), getSettings()::aliasIsMapped);
+					// this.rowcounts = ExcelXLSXDataReader.readData(excelFile.getAbsolutePath(), sheetIndex, startRowIndex, new ExcelRowProcessorImpl(getSettings(), getDocPropertiesMapping()), getSettings()::aliasIsMapped);
+
+					new ExcelReaderBuilder().file(excelFile)
+							.registerReadListener(
+									new ReadListenerImpl(new ExcelRowProcessorImpl(getSettings(), getDocPropertiesMapping())))
+							.sheet(sheetIndex)
+							.doRead();
+					this.rowcounts = 0;
 					break;
 				}
 				case UNKNOWN:
