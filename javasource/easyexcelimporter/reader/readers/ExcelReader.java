@@ -51,6 +51,15 @@ import excelimporter.proxies.ReferenceHandlingEnum;
 import excelimporter.proxies.ReferenceKeyType;
 import excelimporter.proxies.RemoveIndicator;
 import excelimporter.proxies.Template;
+import excelimporter.reader.readers.ContentSupplier;
+import excelimporter.reader.readers.DocProperties;
+import excelimporter.reader.readers.ExcelColumn;
+import excelimporter.reader.readers.ExcelExtension;
+import excelimporter.reader.readers.ExcelHeadable;
+import excelimporter.reader.readers.ExcelImporterException;
+import excelimporter.reader.readers.ExcelRowProcessorImpl;
+import excelimporter.reader.readers.ExcelXLSHeaderReader;
+import excelimporter.reader.readers.ExcelXLSXHeaderReader;
 import excelimporter.reader.readers.replication.ExcelReplicationSettings;
 import system.proxies.FileDocument;
 
@@ -352,10 +361,7 @@ public class ExcelReader {
 
 			// Data - 1st pass ... make a sstmap describing which strings we want to load from the excel SST
 			switch(getExcelExtension(this.settings.getContext(), fileDocument)) {
-				case XLS: {
-                    this.rowcounts = ExcelXLSDataReader.readData(ContentSupplier.of(FileDocument.initialize(context, fileDocument)), sheetIndex, startRowIndex, new ExcelRowProcessorImpl(getSettings(), getDocPropertiesMapping()), getSettings()::aliasIsMapped);
-					break;
-				}
+				case XLS: 
 				case XLSX: {
 					String xpath = String.format("count(//%s[%s = %d])", 
 							Column.entityName, 
@@ -372,7 +378,7 @@ public class ExcelReader {
 
 					new ExcelReaderBuilder().file(excelFile)
 							.registerReadListener(
-									new ReadListenerImpl(new ExcelRowProcessorImpl(getSettings(), getDocPropertiesMapping())))
+									new ReadListenerImpl(new ExcelRowProcessorImpl(getSettings(), getDocPropertiesMapping()), sheetIndex))
 							.sheet(sheetIndex)
 							.doRead();
 					this.rowcounts = 0;
