@@ -24,8 +24,11 @@ public class ReadListenerImpl implements ReadListener {
 
   @Override
   public void doAfterAllAnalysed(AnalysisContext context) {
-    // TODO Auto-generated method stub
-    System.out.println("doaf");
+    try {
+      this.excelRowProcessor.finish();
+    } catch (MendixReplicationException e) {
+      System.out.println("Replication finish error");
+    }
   }
 
   @Override
@@ -40,7 +43,6 @@ public class ReadListenerImpl implements ReadListener {
       this.excelRowProcessor.processValues(
           valueList.toArray(new ExcelCellData[0]), rowIndex,
           sheetIndex);
-      this.excelRowProcessor.finish();
     } catch (MendixReplicationException e) {
       System.out.println("Unable to store Excel row #" + rowIndex + " @Sheet #" + String.valueOf(sheetIndex));
     }

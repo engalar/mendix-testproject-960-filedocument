@@ -23,7 +23,8 @@ import org.apache.poi.hssf.record.StringRecord;
 import org.apache.poi.hssf.usermodel.HSSFDataFormat;
 import org.apache.poi.hssf.usermodel.HSSFDataFormatter;
 
-import easyexcelimporter.reader.readers.ExcelRowProcessor.ExcelCellData;
+import excelimporter.reader.readers.ExcelRowProcessor;
+import excelimporter.reader.readers.ExcelRowProcessor.ExcelCellData;
 
 import com.mendix.core.CoreException;
 

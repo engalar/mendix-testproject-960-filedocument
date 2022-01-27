@@ -24,6 +24,8 @@ import javax.xml.parsers.ParserConfigurationException;
 import javax.xml.parsers.SAXParser;
 import javax.xml.parsers.SAXParserFactory;
 
+import com.mendix.core.Core;
+
 import org.apache.poi.openxml4j.opc.OPCPackage;
 import org.apache.poi.openxml4j.opc.PackagePart;
 import org.apache.poi.openxml4j.opc.PackageRelationship;
@@ -31,8 +33,12 @@ import org.apache.poi.xssf.usermodel.XSSFRelation;
 import org.xml.sax.Attributes;
 import org.xml.sax.InputSource;
 import org.xml.sax.SAXException;
+import org.xml.sax.SAXNotRecognizedException;
+import org.xml.sax.SAXNotSupportedException;
 import org.xml.sax.XMLReader;
 import org.xml.sax.helpers.DefaultHandler;
+
+import excelimporter.reader.readers.ExcelXLSXReader;
 
 /**
  * <p>This is a lightweight way to process the Shared Strings
@@ -136,13 +142,21 @@ public class ReadOnlySharedStringsTable extends DefaultHandler {
         try {
            SAXParser saxParser = saxFactory.newSAXParser();
            XMLReader sheetParser = saxParser.getXMLReader();
-           ExcelXLSXReader.setXMLReaderProperties(sheetParser);
+           setXMLReaderProperties(sheetParser);
            sheetParser.setContentHandler(this);
            sheetParser.parse(sheetSource);
         } catch(ParserConfigurationException e) {
            throw new RuntimeException("SAX parser appears to be broken - " + e.getMessage());
         }
     }
+
+    static void setXMLReaderProperties(XMLReader parser) throws SAXNotRecognizedException, SAXNotSupportedException {
+		boolean isExternalEntitiesEnabled = Boolean.valueOf("true").equals(Core.getConfiguration().getConstantValue("ExcelImporter.EnableExternalEntities"));
+		
+		parser.setFeature("http://xml.org/sax/features/external-general-entities", isExternalEntitiesEnabled);
+		parser.setFeature("http://xml.org/sax/features/external-parameter-entities", isExternalEntitiesEnabled);
+		parser.setFeature("http://apache.org/xml/features/nonvalidating/load-external-dtd", isExternalEntitiesEnabled);
+	}
 
     /**
      * Return an integer representing the total count of strings in the workbook. This count does not

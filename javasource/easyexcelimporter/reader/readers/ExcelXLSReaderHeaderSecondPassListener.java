@@ -13,6 +13,9 @@ import org.apache.poi.hssf.record.NumberRecord;
 import org.apache.poi.hssf.record.Record;
 import org.apache.poi.hssf.record.SSTRecord;
 
+import excelimporter.reader.readers.ExcelColumn;
+import excelimporter.reader.readers.ExcelHeadable;
+
 /**
  * 
  * 
