@@ -13,7 +13,6 @@ public class ExcelReplicationSettings extends ReplicationSettings {
 	public ExcelReplicationSettings(IContext context, String objectType) throws MendixReplicationException {
 		super(context, objectType, new ErrorHandler());
 		this.setInfoHandler( new InfoHandler("ExcelImporter") );
-		this.Configuration.MetaInfoProcessingBatchThreshold = 6000;
 	}
 
 	public void addColumnMapping(String columnAlias, String memberName, boolean isKey, Boolean isCaseSensitive, IValueParser parser) throws CoreException {

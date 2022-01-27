@@ -376,12 +376,13 @@ public class ExcelReader {
 					excelFile = getExcelFile(this.settings.getContext(), fileDocument);
 					// this.rowcounts = ExcelXLSXDataReader.readData(excelFile.getAbsolutePath(), sheetIndex, startRowIndex, new ExcelRowProcessorImpl(getSettings(), getDocPropertiesMapping()), getSettings()::aliasIsMapped);
 
+					ExcelRowProcessorImpl excelRowProcessor = new ExcelRowProcessorImpl(getSettings(), getDocPropertiesMapping());
 					new ExcelReaderBuilder().file(excelFile)
 							.registerReadListener(
-									new ReadListenerImpl(new ExcelRowProcessorImpl(getSettings(), getDocPropertiesMapping()), sheetIndex))
+									new ReadListenerImpl(excelRowProcessor, sheetIndex))
 							.sheet(sheetIndex)
 							.doRead();
-					this.rowcounts = 0;
+					this.rowcounts = excelRowProcessor.getRowCounter();
 					break;
 				}
 				case UNKNOWN:
